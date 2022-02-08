@@ -8,7 +8,7 @@
 // let input = "42958372"
 // let sum = "0";
 //
-// function addString () {
+// function addString (input) {
 //     for(let i=0; i<input.length-1;i++) {
 //         let stringToAdd = input.split(i);
 //         sum += parseInt(input);
@@ -16,7 +16,7 @@
 //
 //     return sum + parseInt(input);
 // }
-// console.log(addString());
+// console.log(addString(input));
 
 // TODO: Write a function that returns an object displaying any number/letter that appears consecutively in a string of numbers.
 //  The object should display how many times that letter/number appears consecutively
@@ -48,4 +48,6 @@ function removeDuplicates (data) {
     return data.filter((value, index) => data.indexOf(value) === index);
 }
 console.log(removeDuplicates(arr));
+
+
 
