@@ -43,11 +43,13 @@ console.log(...howManyRepeated(str));
 // TODO: remove duplicates from an array of integers
 
 let arr = [4, 5, 73, 34, 5, 73, 51, 89];
+let arr2 = [2,3,5,8,3,1,2,6,3,2,7,8,2,4,7]
 
 function removeDuplicates (data) {
     return data.filter((value, index) => data.indexOf(value) === index);
 }
-console.log(removeDuplicates(arr));
+console.log(arr);
+console.log(removeDuplicates(arr2));
 
 
 
