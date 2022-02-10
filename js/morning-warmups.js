@@ -26,30 +26,30 @@
 // INPUT: “BQAAIPPPPFFA”
 // EXPECTED OUTPUT: {a: 2, p: 4, F: 2}
 
-const str = "BQAAIPPPPFFA";
-function howManyRepeated(str){
-    const result = [];
-    const strArr = str.toLowerCase().split("").sort().join("").match(/(.)\1+/g);
-
-    if (strArr != null) {
-        strArr.forEach((elem) => {
-            result.push(elem[0]);
-        });
-    }
-    return result;
-}
-console.log(...howManyRepeated(str));
+// const str = "BQAAIPPPPFFA";
+// function howManyRepeated(str){
+//     const result = [];
+//     const strArr = str.toLowerCase().split("").sort().join("").match(/(.)\1+/g);
+//
+//     if (strArr != null) {
+//         strArr.forEach((elem) => {
+//             result.push(elem[0]);
+//         });
+//     }
+//     return result;
+// }
+// console.log(...howManyRepeated(str));
 
 // TODO: remove duplicates from an array of integers
 
-let arr = [4, 5, 73, 34, 5, 73, 51, 89];
-let arr2 = [2,3,5,8,3,1,2,6,3,2,7,8,2,4,7]
-
-function removeDuplicates (data) {
-    return data.filter((value, index) => data.indexOf(value) === index);
-}
-console.log(arr);
-console.log(removeDuplicates(arr2));
+// let arr = [4, 5, 73, 34, 5, 73, 51, 89];
+// let arr2 = [2,3,5,8,3,1,2,6,3,2,7,8,2,4,7]
+//
+// function removeDuplicates (data) {
+//     return data.filter((value, index) => data.indexOf(value) === index);
+// }
+// console.log(arr);
+// console.log(removeDuplicates(arr2));
 
 // TODO: write a function that takes a string as argument and returns the number of vowels contained in that string.
 // The vowels are “a”, “e”, “i”, “o”, “u”.
@@ -57,25 +57,38 @@ console.log(removeDuplicates(arr2));
 // output: 4
 // reason: there are 4 vowels in the input word helicopter
 
-let vowels = ["a", "e", "i", "o", "u"];
+// let vowels = ["a", "e", "i", "o", "u"];
+//
+// function countVowel (str) {
+//     let count = 0;
+//
+//     for (let letter of str.toLowerCase()) {
+//         if (vowels.includes(letter)) {
+//             count ++;
+//         }
+//     }
+//     return count;
+// }
+//
+// const string = prompt("Enter a string: ");
+//
+// const result = countVowel(string);
+//
+// alert(`There are ${result} vowels in the word ${string}`);
+//
+// console.log(result);
 
-function countVowel (str) {
+// TODO: write a function that counts the number of duplicate characters.
+// example input: "adsjfdsfsfjsdjfhacabcsbajda"
+// expected output: { a: 5, b: 2, c: 2, d: 4, f: 4, j: 4, s: 5 }
+
+let duplicateChar = "adsjfdsfsfjsdjfhacabcsbajda";
+
+let getDuplicates = (previousValue, currentValue) => {
     let count = 0;
-
-    for (let letter of str.toLowerCase()) {
-        if (vowels.includes(letter)) {
-            count ++;
-        }
-    }
-    return count;
-}
-
-const string = prompt("Enter a string: ");
-
-const result = countVowel(string);
-
-alert(`There are ${result} vowels in the word ${string}`);
-
-console.log(result);
-
+    if(duplicateChar[previousValue] === duplicateChar[currentValue]) {
+        duplicateChar[previousValue] += count;
+        console.log(`${previousValue}: ${count}`)
+}}
+getDuplicates();
 
