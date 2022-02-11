@@ -82,13 +82,17 @@
 // example input: "adsjfdsfsfjsdjfhacabcsbajda"
 // expected output: { a: 5, b: 2, c: 2, d: 4, f: 4, j: 4, s: 5 }
 
-let duplicateChar = "adsjfdsfsfjsdjfhacabcsbajda";
+let string = "adsjfdsfsfjsdjfhacabcsbajda";
 
-let getDuplicates = (previousValue, currentValue) => {
+let countDuplicates = (string) => {
     let count = 0;
-    if(duplicateChar[previousValue] === duplicateChar[currentValue]) {
-        duplicateChar[previousValue] += count;
-        console.log(`${previousValue}: ${count}`)
-}}
-getDuplicates();
+    return string
+        .split('')
+        .filter(function (item, pos, self) {
+            return self.indexOf(item) === pos;
+        })
+        .join('');
+}
+console.log(countDuplicates(string));
+
 
