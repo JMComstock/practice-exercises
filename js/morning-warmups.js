@@ -82,17 +82,40 @@
 // example input: "adsjfdsfsfjsdjfhacabcsbajda"
 // expected output: { a: 5, b: 2, c: 2, d: 4, f: 4, j: 4, s: 5 }
 
-let string = "adsjfdsfsfjsdjfhacabcsbajda";
+const counts = {};
+const sampleArray = ['a','d','s','j','f','d','s','f','s','j','f','s','d','j','f','h','a','c','a','b','c','s','b','a','j','d','a'];
+sampleArray.forEach(function (x) { counts[x] = (counts[x] || 0) + 1; });
+console.log(counts)
 
-let countDuplicates = (string) => {
-    let count = 0;
-    return string
-        .split('')
-        .filter(function (item, pos, self) {
-            return self.indexOf(item) === pos;
-        })
-        .join('');
-}
-console.log(countDuplicates(string));
 
+// TODO: Write a function that places all negative integers at the end of an array.
+// Example input: [-2,5,8,-3,3,5,-9,6]
+// Expected output: [5,8,3,5,6,-2,-3,-9]
+//
+// let arr = [-2,5,8,-3,3,5,-9,6];
+// let n = arr.length;
+// let temp = [];
+//
+// function separateNegatives (arr) {
+//
+//     let j = 0;
+//
+//     //if array is all positive or negative, just return the array
+//     if (j === n || j === 0) {
+//         return arr;
+//     }
+//
+//     // store negative element in temp array
+//     for (let i = 0; i < n; i++) {
+//         if(arr[i] < 0) {
+//             temp[j++] = arr[i];
+//         }
+//     }
+//
+//     for ( let i = 0; i < n; i++) {
+//         arr[i] = temp[i];
+//     }
+// }
+//
+// console.log(separateNegatives(arr));
 
