@@ -82,40 +82,50 @@
 // example input: "adsjfdsfsfjsdjfhacabcsbajda"
 // expected output: { a: 5, b: 2, c: 2, d: 4, f: 4, j: 4, s: 5 }
 
-const counts = {};
-const sampleArray = ['a','d','s','j','f','d','s','f','s','j','f','s','d','j','f','h','a','c','a','b','c','s','b','a','j','d','a'];
-sampleArray.forEach(function (x) { counts[x] = (counts[x] || 0) + 1; });
-console.log(counts)
+// const counts = {};
+// const sampleArray = ['a','d','s','j','f','d','s','f','s','j','f','s','d','j','f','h','a','c','a','b','c','s','b','a','j','d','a'];
+// sampleArray.forEach(function (x) { counts[x] = (counts[x] || 0) + 1; });
+// console.log(counts)
 
 
 // TODO: Write a function that places all negative integers at the end of an array.
-// Example input: [-2,5,8,-3,3,5,-9,6]
-// Expected output: [5,8,3,5,6,-2,-3,-9]
-//
-// let arr = [-2,5,8,-3,3,5,-9,6];
-// let n = arr.length;
-// let temp = [];
-//
-// function separateNegatives (arr) {
-//
-//     let j = 0;
-//
-//     //if array is all positive or negative, just return the array
-//     if (j === n || j === 0) {
-//         return arr;
-//     }
-//
-//     // store negative element in temp array
-//     for (let i = 0; i < n; i++) {
-//         if(arr[i] < 0) {
-//             temp[j++] = arr[i];
-//         }
-//     }
-//
-//     for ( let i = 0; i < n; i++) {
-//         arr[i] = temp[i];
-//     }
-// }
-//
-// console.log(separateNegatives(arr));
+//  Example input: [-2,5,8,-3,3,5,-9,6]
+//  Expected output: [5,8,3,5,6,-2,-3,-9]
 
+// Java program to put all negative
+// numbers before positive numbers
+
+// TODO: HEAP SORT Sorts an array of numbers, using the heapsort algorithm.
+//  Use recursion.
+//  Use the spread operator (...) to clone the original array, arr.
+//  Use closures to declare a variable, l, and a function heapify.
+//  Use a for loop and Math.floor() in combination with heapify to create a max heap from the array.
+//  Use a for loop to repeatedly narrow down the considered range, using heapify and swapping values as necessary in order to sort the cloned array.
+
+const heapsort = arr => {
+    const a = [...arr];
+    let l = a.length;
+
+    const heapify = (a, i) => {
+        const left = 2 * i + 1;
+        const right = 2 * i + 2;
+        let max = i;
+        if (left < l && a[left] > a[max]) max = left;
+        if (right < l && a[right] > a[max]) max = right;
+        if (max !== i) {
+            [a[max], a[i]] = [a[i], a[max]];
+            heapify(a, max);
+        }
+    };
+
+    for (let i = Math.floor(l / 2); i >= 0; i -= 1) heapify(a, i);
+    for (var i = a.length - 1; i > 0; i--) {
+        [a[0], a[i]] = [a[i], a[0]];
+        l--;
+        heapify(a, 0);
+    }
+    return a;
+};
+
+
+console.log(heapsort([6, 3, 4, 1])); //expected output [ 1, 3, 4, 6 ]
